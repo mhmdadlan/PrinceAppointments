@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png"/>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <title>نظام جدولة الزيارات والمواعيد</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <meta name="viewport" content="width=device-width"/>
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!--  Material Dashboard CSS    -->
+    <link href="../assets/css/material-dashboard.css" rel="stylesheet"/>
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/jquery.calendars.picker.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../assets/css/datetimepicker.css"/>
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet'
+          type='text/css'>
+    <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css">
+
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div class="sidebar" data-color="green" data-image="../assets/img/ministry_logo.png">
+        <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+        Tip 2: you can also add an image using data-image tag
+
+        -->
+
+        <div class="logo">
+            <a href="#" class="simple-text">
+                مكتب سمو الأمير
+            </a>
+        </div>
+
+
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="material-icons">dashboard</i>
+                        <p>الرئيسية</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="visitors.html">
+                        <i class="material-icons">person</i>
+                        <p>قائمة الزوار</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="appointments.html">
+                        <i class="material-icons">content_paste</i>
+                        <p>قائمة المواعيد</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="appointments_requests.html">
+                        <i class="material-icons">library_books</i>
+                        <p>طلبات الزيارة</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="calendar.html">
+                        <i class="material-icons text-gray">perm_contact_calendar</i>
+                        <p>جدول المواعيد</p>
+                    </a>
+                </li>
+                <li class="active-pro">
+                    <a href="#">
+                        <i class="material-icons">settings</i>
+                        <p>الإعدادات</p>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-transparent navbar-absolute">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">طلبات المواعيد</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="material-icons">power_settings_new</i>
+                                <p class="hidden-lg hidden-md">تسجيل خروج</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="material-icons">person</i>
+                                <p class="hidden-lg hidden-md">Profile</p>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="material-icons">notifications</i>
+                                <span class="notification">5</span>
+                                <p class="hidden-lg hidden-md">Notifications</p>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">يوجد زائر بالصالة</a></li>
+                                <li><a href="#">يوجد 5 مواعدي لم يتم تحديد حالتهم</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group  is-empty">
+                            <input type="text" class="form-control" placeholder="بحث">
+                            <span class="material-input"></span>
+                        </div>
+                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                            <i class="material-icons">search</i>
+                            <div class="ripple-container"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="content">
+            <div class="container-fluid">
+                <form action="">
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-header" data-background-color="blue">
+                                <h4 class="title">طلب زيارة جديد</h4>
+                                <p class="category">إملأ جميع الخانات</p>
+                            </div>
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-header" data-background-color="blue">
+                                                <h5 class="title">معلومات الزيارة</h5>
+                                            </div>
+                                            <div class="card-content">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group label-floating">
+                                                            <label class="control-label">التاريخ</label>
+                                                            <input type="text" name="date"
+                                                                   class="form-control datepicker">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group label-floating">
+                                                            <label class="control-label">الوقت</label>
+                                                            <input type="text" name="time"
+                                                                   class="timepicker form-control">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-5">
+
+                                                        <div class="form-group label-floating">
+                                                            <label class="control-label">الغرض من الزيارة</label>
+                                                            <select name="purpose" class="form-control" id="">
+                                                                <option selected disabled></option>
+                                                                <option value="0">رسمية</option>
+                                                                <option value="1">غير رسمية</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <label>تفاصيل الزيارة</label>
+                                                        <div class="form-group label-floating">
+                                                            <label class="control-label"> الفرض من الزيارة, ملخص للسبب
+                                                                الزيارة.</label>
+                                                            <textarea class="form-control" rows="3"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-header" data-background-color="blue">
+                                                <h5 class="title">الزوار</h5>
+                                            </div>
+                                            <div class="card-content">
+                                                <div class="row">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="table-responsive">
+                                                                <table class="table" id="visitors_table">
+                                                                    <thead class="text-info">
+                                                                    <tr>
+                                                                        <th>رقم الهوية</th>
+                                                                        <th>الاسم</th>
+                                                                        <th>نوع الزائر</th>
+                                                                        <th>الجنس</th>
+                                                                        <th>رقم الهاتف</th>
+                                                                        <th>البريد الإلكتروني</th>
+                                                                        <th>الوظيفة</th>
+                                                                        <th>الرتبة/المرتبة</th>
+                                                                        <th></th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td><input type="text"
+                                                                                   name="visitor_national_id"
+                                                                                   class="visitor_national_id form-control"
+                                                                                   placeholder="رقم الهوية"></td>
+                                                                        <td><input type="text" name="visitor_name"
+                                                                                   class="visitor_name form-control"
+                                                                                   placeholder="الإسم"></td>
+                                                                        <td>
+                                                                            <select name="visitor_type"
+                                                                                    class="form-control visitor_gender">
+                                                                                <option value="1">مسئول</option>
+                                                                                <option value="0">مواطن</option>
+                                                                            </select>
+                                                                        </td>
+                                                                        <td>
+                                                                            <select name="visitor_gender"
+                                                                                    class="form-control visitor_gender">
+                                                                                <option value="1">ذكر</option>
+                                                                                <option value="0">أنثى</option>
+                                                                            </select>
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                   name="visitor_phone_number"
+                                                                                   class="form-control visitor_phone_number"
+                                                                                   placeholder="رقم الهاتف"></td>
+                                                                        <td><input type="email" name="visitor_email"
+                                                                                   class="form-control visitor_email"
+                                                                                   placeholder="البريد الإلكتروني"></td>
+                                                                        <td>
+                                                                            <select name="visitor_job"
+                                                                                    class="form-control visitor_job">
+                                                                                <option value="1">عسكري</option>
+                                                                                <option value="0">مدني</option>
+                                                                            </select>
+                                                                        </td>
+                                                                        <td>
+                                                                            <select name="visitor_grade"
+                                                                                    class="form-control visitor_grade">
+                                                                                <option value="1">لواء</option>
+                                                                                <option value="0">عميد</option>
+                                                                            </select>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button" rel="tooltip"
+                                                                                    title="حذف"
+                                                                                    class="btn btn-danger btn-simple btn-xs remove_visitor">
+                                                                                <i class="fa fa-times"></i></button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary pull-left">رفع الطلب</button>
+                                <div class="clearfix"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <p class="copyright pull-right">
+                    © أمارة الحدود الشمالية - نظام جدولة المواعيد - 1438
+                </p>
+            </div>
+        </footer>
+    </div>
+</div>
+
+</body>
+
+<!--   Core JS Files   -->
+<script src="../assets/js/jquery-3.1.0.min.js" type="text/javascript"></script>
+<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../assets/js/material.min.js" type="text/javascript"></script>
+
+<!--  Charts Plugin -->
+<script src="../assets/js/chartist.min.js"></script>
+
+<!--  Notifications Plugin    -->
+<script src="../assets/js/bootstrap-notify.js"></script>
+
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+<!-- Material Dashboard javascript methods -->
+<script src="../assets/js/material-dashboard.js"></script>
+
+<!-- Material Dashboard DEMO methods, don't include it in your project! -->
+<script src="../assets/js/demo.js"></script>
+<script src="../assets/js/jquery.calendars.js"></script>
+<script src="../assets/js/jquery.calendars.plus.js"></script>
+<script src="../assets/js/jquery.plugin.js"></script>
+<script src="../assets/js/jquery.calendars.picker.js"></script>
+<script src="../assets/js/jquery.calendars.picker-ar.js"></script>
+<script src="../assets/js/jquery.calendars.islamic.js"></script>
+<script src="../assets/js/jquery.calendars.islamic-ar.js"></script>
+<script src="../assets/js/datetimepicker.js"></script>
+<script>
+
+    $(function () {
+        $('.datepicker').calendarsPicker({
+            calendar: $.calendars.instance('islamic'), selectDefaultDate: true, showTrigger: '#calImg'
+        });
+        $('.timepicker').datetimepicker({
+            datepicker: false,
+            format: 'H:i'
+        });
+
+        $(document).on('click', '#add_visitor', function (event) {
+            event.preventDefault();
+            var national_id = $('#visitor_national_id').val();
+            $.ajax({
+                dataType: "json",
+                url: 'visitors.json',
+                dataType: 'json',
+                success: function (result) {
+                    var is_found = false;
+                    var is_added = false;
+                    $('.national_id_td').each(function (ind, field) {
+                        var old_id = parseInt($(field).text());
+                        if (old_id == national_id) {
+                            is_added = true;
+                            $.notify({
+                                // options
+                                message: 'تم إضافة هذا الزائر من قبل'
+                            }, {
+                                // settings
+                                type: 'warning'
+                            });
+                        }
+                    })
+                    $.each(result, function (index, element) {
+                        if (element.national_id == national_id && !is_added) {
+                            $('#visitors_table tbody').prepend('<tr>' +
+                                '<td class="national_id_td">' + element.national_id + '</td>'
+                                + '<td>' + element.name + '</td>'
+                                + '<td>' + element.type + '</td>'
+                                + '<td>' +
+                                '<button type="button" rel="tooltip" title="حذف" class="btn btn-danger btn-simple btn-xs remove_visitor"> ' +
+                                '<i class="fa fa-times"></i></button>' +
+                                '</td>' +
+                                '</tr>');
+                            is_found = true;
+                        }
+                    });
+                    if (!is_found && !is_added) {
+                        $.notify({
+                            // options
+                            message: 'لم يتم ايجاد الزائر الرجاء التاكد من رقم الهوية أو تسجيل الزائر ان لم يكن مسجل'
+                        }, {
+                            // settings
+                            type: 'warning'
+                        });
+                    }
+                },
+            });
+
+        })
+    })
+
+</script>
+
+
+</html>
