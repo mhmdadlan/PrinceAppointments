@@ -176,6 +176,13 @@
                                                                    class="timepicker form-control">
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group label-floating">
+                                                            <label class="btn btn-default">
+                                                                مرفقات <input type="file" hidden>
+                                                            </label>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                                 <div class="row">
@@ -232,6 +239,7 @@
                                                                     </thead>
                                                                     <tbody>
                                                                     <tr>
+                                                                        <input type="hidden" class="visitor_id" value="0">
                                                                         <td><input type="text"
                                                                                    name="visitor_national_id"
                                                                                    class="visitor_national_id form-control"
@@ -343,6 +351,7 @@
 <script src="../assets/js/jquery.calendars.islamic.js"></script>
 <script src="../assets/js/jquery.calendars.islamic-ar.js"></script>
 <script src="../assets/js/datetimepicker.js"></script>
+<script src="../assets/js/jquery.autocomplete.min.js"></script>
 <script>
 
     $(function () {
@@ -353,6 +362,32 @@
             datepicker: false,
             format: 'H:i'
         });
+
+        $('.visitor_national_id').each(function(i,el){
+          el = $(el);
+          el.autocomplete({
+              serviceUrl: 'visitors.json',
+              onSelect: function (suggestion) {
+                  existing_visitor_autofill(suggestion.data)
+
+              }
+          });
+        });
+
+        function existing_visitor_autofill(id) {
+            $.ajax({
+                dataType: "json",
+                url: 'visitors.json',
+                dataType: 'json',
+                success: function (result) {
+                    $('.visitor_name').val(result[id].name);
+                    $('.visitor_national_id').val(result[id].national_id);
+                    $('.visitor_type').val(result[id].type == "مواطن" ? 0 : 1);
+                    $('.visitor_phone_number').val(result[id].phone_number);
+                }
+            });
+
+        }
 
         $(document).on('click', '#add_visitor', function (event) {
             event.preventDefault();
