@@ -4,29 +4,43 @@
     "name": "محمد بدرالدين" ,
     "national_id": 21415549813,
     "phone_number": 541401670,
-    "type": "مسئول"
-
+    "type": "director",
+    "email": "me@madlan.me",
+    "job": "civilian",
+    "gender": "male"
   },
   "2":{
     "id": 2,
     "name": "عبد المنعم خاطر" ,
     "national_id": 21544254614,
-    "type": "مسئول"
+    "phone_number": 541401670,
+    "type": "citizen",
+    "email": "me@madlan.me",
+    "job": "civilian",
+    "gender": "male"
 
   },
   "3":{
     "id": 3,
     "name": "محمد الجنيدي" ,
     "national_id": 1054635745,
-    "type": "مواطن"
+    "phone_number": 541401670,
+    "type": "citizen",
+    "email": "me@madlan.me",
+    "job": "military",
+    "gender": "male"
+
 
   },
   "4":{
     "id": 4,
     "name": "منصور الفهيد" ,
     "national_id": 1011544354,
-    "type": "مواطن"
-
+    "phone_number": 541401670,
+    "type": "citizen",
+    "email": "me@madlan.me",
+    "job": "military",
+    "gender": "male"
   },
   "suggestions": [
     { "data": "4","value": "1011544354" },

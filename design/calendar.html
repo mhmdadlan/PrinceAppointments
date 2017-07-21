@@ -171,8 +171,10 @@
 <script src="../assets/js/moment.min.js"></script>
 <script src="../assets/js/fullcalendar.min.js"></script>
 <script src="../assets/js/ar-sa.js"></script>
+<script src="../assets/js/moment_hijri.js"></script>
 
 <script>
+    moment().format('iYYYY/iM/iD');
     $().ready(function () {
         $('#map').fullCalendar({
             header: {
@@ -183,7 +185,6 @@
             defaultDate: '2017-05-12',
             navLinks: true, // can click day/week names to navigate views
             eventLimit: true, // allow "more" link when too many events
-            locale: 'ar-sa',
             events: [
                 {
                     title: 'حدث طوال اليوم',
@@ -235,7 +236,9 @@
                     start: '2017-05-13T07:00:00'
                 }
                 ]
-        })
+        });
+        $('#map').fullCalendar('getCalendar').moment().format('iYYYY/iM/iD');
+
     });
 </script>
 

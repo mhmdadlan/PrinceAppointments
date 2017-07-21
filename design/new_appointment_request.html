@@ -149,44 +149,34 @@
                 <form action="">
                     <div class="row">
                         <div class="card">
-                            <div class="card-header" data-background-color="blue">
+                            <div class="card-header" data-background-color="green">
                                 <h4 class="title">طلب زيارة جديد</h4>
                                 <p class="category">إملأ جميع الخانات</p>
                             </div>
                             <div class="card-content">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="card">
+                                        <div class="card card-plain">
                                             <div class="card-header" data-background-color="blue">
                                                 <h5 class="title">معلومات الزيارة</h5>
                                             </div>
                                             <div class="card-content">
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-2">
                                                         <div class="form-group label-floating">
                                                             <label class="control-label">التاريخ</label>
                                                             <input type="text" name="date"
                                                                    class="form-control datepicker">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-1">
                                                         <div class="form-group label-floating">
                                                             <label class="control-label">الوقت</label>
                                                             <input type="text" name="time"
                                                                    class="timepicker form-control">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-group label-floating">
-                                                            <label class="btn btn-default">
-                                                                مرفقات <input type="file" hidden>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-md-5">
+                                                    <div class="col-md-2">
 
                                                         <div class="form-group label-floating">
                                                             <label class="control-label">الغرض من الزيارة</label>
@@ -197,14 +187,24 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-7">
+                                                    <div class="col-md-5">
                                                         <label>تفاصيل الزيارة</label>
                                                         <div class="form-group label-floating">
-                                                            <label class="control-label"> الفرض من الزيارة, ملخص للسبب
-                                                                الزيارة.</label>
+                                                            <label class="control-label"> الفرض من الزيارة, ملخص للسبب الزيارة.</label>
                                                             <textarea class="form-control" rows="3"></textarea>
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group label-floating">
+                                                            <label class="btn btn-default">مرفقات <input type="file" hidden></label>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="row">
+
                                                 </div>
 
                                                 <div class="clearfix"></div>
@@ -214,7 +214,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="card">
+                                        <div class="card card-plain">
                                             <div class="card-header" data-background-color="blue">
                                                 <h5 class="title">الزوار</h5>
                                             </div>
@@ -249,16 +249,16 @@
                                                                                    placeholder="الإسم"></td>
                                                                         <td>
                                                                             <select name="visitor_type"
-                                                                                    class="form-control visitor_gender">
-                                                                                <option value="1">مسئول</option>
-                                                                                <option value="0">مواطن</option>
+                                                                                    class="form-control visitor_type">
+                                                                                <option value="director">مسئول</option>
+                                                                                <option value="citizen">مواطن</option>
                                                                             </select>
                                                                         </td>
                                                                         <td>
                                                                             <select name="visitor_gender"
                                                                                     class="form-control visitor_gender">
-                                                                                <option value="1">ذكر</option>
-                                                                                <option value="0">أنثى</option>
+                                                                                <option value="male">ذكر</option>
+                                                                                <option value="female">أنثى</option>
                                                                             </select>
                                                                         </td>
                                                                         <td><input type="text"
@@ -271,8 +271,8 @@
                                                                         <td>
                                                                             <select name="visitor_job"
                                                                                     class="form-control visitor_job">
-                                                                                <option value="1">عسكري</option>
-                                                                                <option value="0">مدني</option>
+                                                                                <option value="military">عسكري</option>
+                                                                                <option value="civilian">مدني</option>
                                                                             </select>
                                                                         </td>
                                                                         <td>
@@ -290,6 +290,12 @@
                                                                         </td>
                                                                     </tr>
                                                                     </tbody>
+                                                                    <tfoot>
+                                                                    <tr>
+                                                                        <td colspan="9"><button type="button" class="btn btn-info btn-sm pull-left" id="#add_visitor_button">+ إضافة زائر</button></td>
+                                                                    </tr>
+                                                                    </tfoot>
+
                                                                 </table>
 
 
@@ -343,21 +349,27 @@
 
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="../assets/js/demo.js"></script>
-<script src="../assets/js/jquery.calendars.js"></script>
-<script src="../assets/js/jquery.calendars.plus.js"></script>
+
+
+<script src="../assets/js/jquery.calendars.min.js"></script>
+<script src="../assets/js/jquery.calendars-ar.js"></script>
+<script src="../assets/js/jquery.calendars.plus.min.js"></script>
 <script src="../assets/js/jquery.plugin.js"></script>
 <script src="../assets/js/jquery.calendars.picker.js"></script>
 <script src="../assets/js/jquery.calendars.picker-ar.js"></script>
-<script src="../assets/js/jquery.calendars.islamic.js"></script>
-<script src="../assets/js/jquery.calendars.islamic-ar.js"></script>
+<script src="../assets/js/jquery.calendars.ummalqura.min.js"></script>
+<script src="../assets/js/jquery.calendars.ummalqura-ar.js"></script>
+
+
 <script src="../assets/js/datetimepicker.js"></script>
 <script src="../assets/js/jquery.autocomplete.min.js"></script>
 <script>
 
     $(function () {
         $('.datepicker').calendarsPicker({
-            calendar: $.calendars.instance('islamic'), selectDefaultDate: true, showTrigger: '#calImg'
+            calendar: $.calendars.instance('ummalqura', 'ar'), selectDefaultDate: true, showTrigger: '#calImg'
         });
+
         $('.timepicker').datetimepicker({
             datepicker: false,
             format: 'H:i'
@@ -368,22 +380,26 @@
           el.autocomplete({
               serviceUrl: 'visitors.json',
               onSelect: function (suggestion) {
-                  existing_visitor_autofill(suggestion.data)
+                  existing_visitor_autofill(suggestion.data, el.closest('tr'))
 
               }
           });
         });
 
-        function existing_visitor_autofill(id) {
+        function existing_visitor_autofill(id, element) {
             $.ajax({
                 dataType: "json",
                 url: 'visitors.json',
                 dataType: 'json',
                 success: function (result) {
-                    $('.visitor_name').val(result[id].name);
+                    $(element).find('.visitor_name').val(result[id].name);
                     $('.visitor_national_id').val(result[id].national_id);
-                    $('.visitor_type').val(result[id].type == "مواطن" ? 0 : 1);
+                    $('.visitor_type').val(result[id].type);
                     $('.visitor_phone_number').val(result[id].phone_number);
+                    $('.visitor_email').val(result[id].email);
+                    $('.visitor_gender').val(result[id].gender);
+                    $('.visitor_job').val(result[id].job);
+                    $(element).find('input').prop('disabled', true).end().find('select').prop('disabled', true);
                 }
             });
 

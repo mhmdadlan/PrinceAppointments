@@ -1,11 +1,11 @@
-/* Default styling for jQuery Calendars Picker v2.0.0. */
+/* Smoothness styling for jQuery Calendars Picker v2.0.0. */
 .calendars {
 	background-color: #fff;
-	color: #000;
-	border: 1px solid #444;
-    -moz-border-radius: 0.25em;
-    -webkit-border-radius: 0.25em;
-    border-radius: 0.25em;
+	color: #222;
+	border: 1px solid #aaa;
+	-moz-border-radius: 0.25em;
+	-webkit-border-radius: 0.25em;
+	border-radius: 0.25em;
 	font-family: Arial,Helvetica,Sans-serif;
 	font-size: 90%;
 }
@@ -23,7 +23,7 @@
 	filter: alpha(opacity=50);
 }
 .calendars a {
-	color: #fff;
+	color: #222;
 	text-decoration: none;
 }
 .calendars a.calendars-disabled {
@@ -31,31 +31,30 @@
 	cursor: auto;
 }
 .calendars button {
-    margin: 0.25em;
-    padding: 0.125em 0em;
-    background-color: #fcc;
-    border: none;
-    -moz-border-radius: 0.25em;
-    -webkit-border-radius: 0.25em;
-    border-radius: 0.25em;
-    font-weight: bold;
+	margin: 0.25em;
+	padding: 0.125em 0em;
+	background-color: #fcc;
+	border: none;
+	-moz-border-radius: 0.25em;
+	-webkit-border-radius: 0.25em;
+	border-radius: 0.25em;
+	font-weight: bold;
 }
 .calendars-nav, .calendars-ctrl {
 	float: left;
 	width: 100%;
-	background-color: #000;
-	color: #fff;
+	background-color: #fff;
 	font-size: 90%;
 	font-weight: bold;
 }
 .calendars-ctrl {
-	background-color: #600;
+	background-color: #fee6e3;
 }
 .calendars-cmd {
 	width: 30%;
 }
 .calendars-cmd:hover {
-	background-color: #777;
+	background-color: #e0e0e0;
 }
 .calendars-ctrl .calendars-cmd:hover {
 	background-color: #f08080;
@@ -102,7 +101,6 @@ button.calendars-cmd {
 }
 .calendars-month-nav {
 	float: left;
-	background-color: #777;
 	text-align: center;
 }
 .calendars-month-nav div {
@@ -120,13 +118,13 @@ button.calendars-cmd {
 .calendars-month {
 	float: left;
 	width: 15em;
-	border: 1px solid #444;
+	border: 1px solid #aaa;
 	text-align: center;
 }
 .calendars-month-header, .calendars-month-header select, .calendars-month-header input {
 	height: 1.5em;
-	background-color: #444;
-	color: #fff;
+	background-color: #e0e0e0;
+	color: #222;
 	font-weight: bold;
 }
 .calendars-month-header select, .calendars-month-header input {
@@ -150,23 +148,16 @@ button.calendars-cmd {
 	font-weight: normal;
 	text-align: center;
 }
-.calendars-month th {
-	border: 1px solid #777;
-}
-.calendars-month th, .calendars-month th a {
-	background-color: #777;
-	color: #fff;
+.calendars-month thead tr {
+	border: 1px solid #aaa;
 }
 .calendars-month td {
 	background-color: #eee;
 	border: 1px solid #aaa;
 }
-.calendars-month td.calendars-week {
-	border: 1px solid #777;
-}
 .calendars-month td.calendars-week * {
-	background-color: #777;
-	color: #fff;
+	background-color: #e0e0e0;
+	color: #222;
 	border: none;
 }
 .calendars-month a {
@@ -192,22 +183,16 @@ button.calendars-cmd {
 	background-color: #ddd;
 }
 .calendars-month td .calendars-today {
-	background-color: #f0c0c0;
+	background-color: #fbf9ee;
 }
 .calendars-month td .calendars-highlight {
-	background-color: #f08080;
+	background-color: #dadada;
 }
 .calendars-month td .calendars-selected {
-	background-color: #777;
-	color: #fff;
-}
-.calendars-month th.calendars-week {
-	background-color: #777;
-	color: #fff;
+	background-color: #fcc;
 }
 .calendars-status {
 	clear: both;
-	background-color: #ddd;
 	text-align: center;
 }
 .calendars-clear-fix {

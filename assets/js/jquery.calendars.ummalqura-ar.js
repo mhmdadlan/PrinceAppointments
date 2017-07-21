@@ -1,11 +1,11 @@
 ﻿/* http://keith-wood.name/calendars.html
-   Arabic localisation for Islamic calendar for jQuery v2.1.0.
-   Written by Keith Wood (wood.keith{at}optusnet.com.au) August 2009.
+   Arabic localisation for UmmAlQura calendar for jQuery v2.1.0.
+   Written by Amro Osama March 2013.
    Updated by Fahad Alqahtani April 2016. */
-(function($) {
+(function ($) {
 	'use strict';
-	$.calendars.calendars.islamic.prototype.regionalOptions.ar = {
-		name: 'Islamic',
+	$.calendars.calendars.ummalqura.prototype.regionalOptions.ar = {
+		name: 'UmmAlQura', // The calendar name
 		epochs: ['BAM', 'AM'],
 		monthNames: 'محرم_صفر_ربيع الأول_ربيع الثاني_جمادى الأول_جمادى الآخر_رجب_شعبان_رمضان_شوال_ذو القعدة_ذو الحجة'.split('_'),
 		monthNamesShort: 'محرم_صفر_ربيع1_ربيع2_جمادى1_جمادى2_رجب_شعبان_رمضان_شوال_القعدة_الحجة'.split('_'),
@@ -18,3 +18,7 @@
 		isRTL: true
 	};
 })(jQuery);
+
+
+
+		
