@@ -62,5 +62,6 @@ fabric.properties
 
 # Sonarlint plugin
 .idea/sonarlint
-
+.idea/Appointments System.iml
+.idea/workspace.xml
 # End of https://www.gitignore.io/api/phpstorm

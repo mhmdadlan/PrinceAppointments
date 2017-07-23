@@ -1,0 +1,51 @@
+<tr class="visitor">
+    <input type="hidden" class="visitor_id" value="0">
+    <td><input type="text"
+               name="visitor_national_id"
+               class="visitor_input visitor_national_id form-control"
+               placeholder="رقم الهوية"></td>
+    <td><input type="text" name="visitor_name"
+               class="visitor_input visitor_name form-control"
+               placeholder="الإسم"></td>
+    <td>
+        <select name="visitor_type"
+                class="visitor_input form-control visitor_type">
+            <option value="director">مسئول</option>
+            <option value="citizen">مواطن</option>
+        </select>
+    </td>
+    <td>
+        <select name="visitor_gender"
+                class="visitor_input form-control visitor_gender">
+            <option value="male">ذكر</option>
+            <option value="female">أنثى</option>
+        </select>
+    </td>
+    <td><input type="text"
+               name="visitor_phone_number"
+               class="visitor_input form-control visitor_phone_number"
+               placeholder="رقم الهاتف"></td>
+    <td><input type="email" name="visitor_email"
+               class="visitor_input form-control visitor_email"
+               placeholder="البريد الإلكتروني"></td>
+    <td>
+        <select name="visitor_job"
+                class="visitor_input form-control visitor_job">
+            <option value="military">عسكري</option>
+            <option value="civilian">مدني</option>
+        </select>
+    </td>
+    <td>
+        <select name="visitor_grade"
+                class="visitor_input form-control visitor_grade">
+            <option value="1">لواء</option>
+            <option value="0">عميد</option>
+        </select>
+    </td>
+    <td>
+        <button type="button" rel="tooltip"
+                title="حذف"
+                class="btn btn-danger btn-simple btn-xs remove_visitor">
+            <i class="fa fa-times"></i></button>
+    </td>
+</tr>

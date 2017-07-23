@@ -196,13 +196,20 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-5">
+                                                    <div class="col-md-4">
                                                         <label>تفاصيل الزيارة</label>
                                                         <div class="form-group label-floating">
-                                                            <label class="control-label"> الفرض من الزيارة, ملخص للسبب الزيارة.</label>
+                                                            <label class="control-label"> الفرض من الزيارة, ملخص للسبب
+                                                                الزيارة.</label>
                                                             <textarea class="form-control" rows="3"></textarea>
                                                         </div>
                                                     </div>
+                                                    <div class="checkbox ">
+                                                        <label class="text-danger">
+                                                            <input type="checkbox" name="optionsCheckboxes">طارئ
+                                                        </label>
+                                                    </div>
+
                                                     <div class="col-md-12">
                                                         <div class="form-group label-floating">
                                                             <label class="control-label">مرفقات </label>
@@ -248,61 +255,16 @@
                                                                     </tr>
                                                                     </thead>
                                                                     <tbody>
-                                                                    <tr>
-                                                                        <input type="hidden" class="visitor_id" value="0">
-                                                                        <td><input type="text"
-                                                                                   name="visitor_national_id"
-                                                                                   class="visitor_national_id form-control"
-                                                                                   placeholder="رقم الهوية"></td>
-                                                                        <td><input type="text" name="visitor_name"
-                                                                                   class="visitor_name form-control"
-                                                                                   placeholder="الإسم"></td>
-                                                                        <td>
-                                                                            <select name="visitor_type"
-                                                                                    class="form-control visitor_type">
-                                                                                <option value="director">مسئول</option>
-                                                                                <option value="citizen">مواطن</option>
-                                                                            </select>
-                                                                        </td>
-                                                                        <td>
-                                                                            <select name="visitor_gender"
-                                                                                    class="form-control visitor_gender">
-                                                                                <option value="male">ذكر</option>
-                                                                                <option value="female">أنثى</option>
-                                                                            </select>
-                                                                        </td>
-                                                                        <td><input type="text"
-                                                                                   name="visitor_phone_number"
-                                                                                   class="form-control visitor_phone_number"
-                                                                                   placeholder="رقم الهاتف"></td>
-                                                                        <td><input type="email" name="visitor_email"
-                                                                                   class="form-control visitor_email"
-                                                                                   placeholder="البريد الإلكتروني"></td>
-                                                                        <td>
-                                                                            <select name="visitor_job"
-                                                                                    class="form-control visitor_job">
-                                                                                <option value="military">عسكري</option>
-                                                                                <option value="civilian">مدني</option>
-                                                                            </select>
-                                                                        </td>
-                                                                        <td>
-                                                                            <select name="visitor_grade"
-                                                                                    class="form-control visitor_grade">
-                                                                                <option value="1">لواء</option>
-                                                                                <option value="0">عميد</option>
-                                                                            </select>
-                                                                        </td>
-                                                                        <td>
-                                                                            <button type="button" rel="tooltip"
-                                                                                    title="حذف"
-                                                                                    class="btn btn-danger btn-simple btn-xs remove_visitor">
-                                                                                <i class="fa fa-times"></i></button>
-                                                                        </td>
-                                                                    </tr>
                                                                     </tbody>
                                                                     <tfoot>
                                                                     <tr>
-                                                                        <td colspan="9"><button type="button" class="btn btn-info btn-sm pull-left" id="#add_visitor_button">+ إضافة زائر</button></td>
+                                                                        <td colspan="9">
+                                                                            <button type="button"
+                                                                                    class="btn btn-info btn-sm pull-left"
+                                                                                    id="add_visitor_button">+ إضافة
+                                                                                زائر
+                                                                            </button>
+                                                                        </td>
                                                                     </tr>
                                                                     </tfoot>
 
@@ -391,17 +353,6 @@
             format: 'H:i'
         });
 
-        $('.visitor_national_id').each(function(i,el){
-          el = $(el);
-          el.autocomplete({
-              serviceUrl: 'visitors.json',
-              onSelect: function (suggestion) {
-                  existing_visitor_autofill(suggestion.data, el.closest('tr'))
-
-              }
-          });
-        });
-
         function existing_visitor_autofill(id, element) {
             $.ajax({
                 dataType: "json",
@@ -420,57 +371,117 @@
             });
 
         }
+        $('.visitor_national_id').each(function (i, el) {
+            el = $(el);
+            el.autocomplete({
+                serviceUrl: 'visitors.json',
+                onSelect: function (suggestion) {
+                    existing_visitor_autofill(suggestion.data, el.closest('tr'))
 
-        $(document).on('click', '#add_visitor', function (event) {
-            event.preventDefault();
-            var national_id = $('#visitor_national_id').val();
-            $.ajax({
-                dataType: "json",
-                url: 'visitors.json',
-                dataType: 'json',
-                success: function (result) {
-                    var is_found = false;
-                    var is_added = false;
-                    $('.national_id_td').each(function (ind, field) {
-                        var old_id = parseInt($(field).text());
-                        if (old_id == national_id) {
-                            is_added = true;
-                            $.notify({
-                                // options
-                                message: 'تم إضافة هذا الزائر من قبل'
-                            }, {
-                                // settings
-                                type: 'warning'
-                            });
-                        }
-                    })
-                    $.each(result, function (index, element) {
-                        if (element.national_id == national_id && !is_added) {
-                            $('#visitors_table tbody').prepend('<tr>' +
-                                '<td class="national_id_td">' + element.national_id + '</td>'
-                                + '<td>' + element.name + '</td>'
-                                + '<td>' + element.type + '</td>'
-                                + '<td>' +
-                                '<button type="button" rel="tooltip" title="حذف" class="btn btn-danger btn-simple btn-xs remove_visitor"> ' +
-                                '<i class="fa fa-times"></i></button>' +
-                                '</td>' +
-                                '</tr>');
-                            is_found = true;
-                        }
-                    });
-                    if (!is_found && !is_added) {
-                        $.notify({
-                            // options
-                            message: 'لم يتم ايجاد الزائر الرجاء التاكد من رقم الهوية أو تسجيل الزائر ان لم يكن مسجل'
-                        }, {
-                            // settings
-                            type: 'warning'
-                        });
-                    }
-                },
+                }
             });
+        });
 
-        })
+        function modifyVisitorIndexing(row) {
+            var nameAttr;
+            var visitor_index = $('tr.visitor').length;
+            $(row).find('.visitor_input').each(function () {
+                var idText = $(this).attr('id');
+                var namePrefix = 'AwardPayments[' + visitor_index + '].';
+                var nameSuffix = $(this).attr('name');
+                nameAttr = namePrefix + nameSuffix;
+                if ($(this).hasClass('type'))
+                    $(this).val(0);
+                else
+                    $(this).val('');
+                if (idText)
+                    $(this).attr('id', idText.replace('_0_', '_' + visitor_index + '_'));
+                $(this).attr('name', nameAttr);
+            }).end().find('span[data-valmsg-for]').each(function () {
+                var namePrefix = 'AwardPayments[' + visitor_index + '].';
+                if ($(this).attr('data-valmsg-for')) {
+                    var nameSuffix = $(this).attr('data-valmsg-for');
+                    nameAttr = namePrefix + nameSuffix;
+                    $(this).attr('data-valmsg-for', nameAttr);
+                }
+            });
+            return row;
+        }
+
+        $(document).on('click', '#add_visitor_button', function () {
+            var visitors_index = $('tr.visitor').length;
+            $.get("visitor_partial_view.html", function (data) {
+                var dataindexed = modifyVisitorIndexing($(data)).addClass('visitor_' + visitors_index).appendTo("#visitors_table>tbody");
+                $(dataindexed).find('.visitor_national_id').autocomplete({
+                    serviceUrl: 'visitors.json',
+                    onSelect: function (suggestion) {
+                        existing_visitor_autofill(suggestion.data, dataindexed)
+
+                    }
+                });
+                //$('.visitor_input').each(fnValidateDynamicContent(this));
+            });
+        });
+
+        $(document).on("click", ".remove_visitor", function () {
+            $(this).closest(".visitor").remove().end();
+            $('.visitor').each(modifyVisitorIndexing);
+        });
+
+
+
+        /*
+         $(document).on('click', '#add_visitor', function (event) {
+         event.preventDefault();
+         var national_id = $('#visitor_national_id').val();
+         $.ajax({
+         dataType: "json",
+         url: 'visitors.json',
+         dataType: 'json',
+         success: function (result) {
+         var is_found = false;
+         var is_added = false;
+         $('.national_id_td').each(function (ind, field) {
+         var old_id = parseInt($(field).text());
+         if (old_id == national_id) {
+         is_added = true;
+         $.notify({
+         // options
+         message: 'تم إضافة هذا الزائر من قبل'
+         }, {
+         // settings
+         type: 'warning'
+         });
+         }
+         })
+         $.each(result, function (index, element) {
+         if (element.national_id == national_id && !is_added) {
+         $('#visitors_table tbody').prepend('<tr>' +
+         '<td class="national_id_td">' + element.national_id + '</td>'
+         + '<td>' + element.name + '</td>'
+         + '<td>' + element.type + '</td>'
+         + '<td>' +
+         '<button type="button" rel="tooltip" title="حذف" class="btn btn-danger btn-simple btn-xs remove_visitor"> ' +
+         '<i class="fa fa-times"></i></button>' +
+         '</td>' +
+         '</tr>');
+         is_found = true;
+         }
+         });
+         if (!is_found && !is_added) {
+         $.notify({
+         // options
+         message: 'لم يتم ايجاد الزائر الرجاء التاكد من رقم الهوية أو تسجيل الزائر ان لم يكن مسجل'
+         }, {
+         // settings
+         type: 'warning'
+         });
+         }
+         },
+         });
+
+         })
+         */
     })
 
 </script>
