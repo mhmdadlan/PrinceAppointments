@@ -2425,6 +2425,7 @@ fieldset[disabled] .form-group.is-focused .checkbox label {
   border: 1px solid rgba(0,0,0, .54);
   overflow: hidden;
   z-index: 1;
+  padding-right: 10px;
   border-radius: 3px;
 }
 .checkbox .checkbox-material .check:before {

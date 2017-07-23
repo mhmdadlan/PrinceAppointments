@@ -29,7 +29,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet'
           type='text/css'>
-    <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap-rtl.css">
 
 </head>
 
@@ -148,38 +148,40 @@
 
         <div class="content">
             <div class="container-fluid">
-                    <div class="row">
-                        <div class="card">
-                            <div class="card-header" data-background-color="green">
-                                <h4 class="title">طلب زيارة رقم #749</h4>
-                            </div>
-                            <div class="card-content">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header" data-background-color="green">
+                            <h4 class="title">إعتماد طلب زيارة رقم #749</h4>
+                        </div>
+                        <div class="card-content">
+                            <form action="">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="card card-plain">
                                             <div class="card-header" data-background-color="blue">
-                                                <h5 class="title">معلومات الطلب</h5>
+                                                <h5 class="title">التاريخ المعتمد</h5>
                                             </div>
                                             <div class="card-content">
                                                 <div class="row">
-                                                    <div class="col-md-6">
-                                                        <p><span class="material-icons">date_range</span> التاريخ : <span class="text-info">12/10/1438</span></p>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group label-floating">
+                                                            <label class="control-label">التاريخ</label>
+                                                            <input type="text" name="date"
+                                                                   class="form-control datepicker">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group label-floating">
+                                                            <label class="control-label">الوقت</label>
+                                                            <input type="text" name="time"
+                                                                   class="timepicker form-control">
+                                                        </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p><i class="material-icons">access_time</i> الوقت : <span class="text-info">13:00</span></p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-5">
-                                                        <p>الغرض من الزيارة :<span class="text-info">رسمية</span></p>
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        <p>تفاصيل : <span class="text-info">هذا فقط نص تجريبي لتفاصيل الطلب الى حين اضافة تفاصيل حقيقية</span></p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-5">
-                                                        <p>المرفقات : <button class="btn btn-default btn-sm pull-left">عرض</button></p>
+                                                        <div class="form-group label-floating">
+                                                            <label class="control-label"> ملاحظة الإعتماد...</label>
+                                                            <textarea class="form-control"></textarea>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="clearfix"></div>
@@ -189,7 +191,8 @@
                                     <div class="col-md-6">
                                         <div class="card card-plain">
                                             <div class="card-header" data-background-color="blue">
-                                                <h5 class="title">الزوار</h5>
+                                                <h4 class="title">تبليغ الزوار بالرسائل النصية</h4>
+                                                <p class="category">الرجاء تحديد الزوار الذين تريد تبليغهم بالرسائل النصية</p>
                                             </div>
                                             <div class="card-content">
                                                 <div class="row">
@@ -199,24 +202,87 @@
                                                                 <table class="table" id="visitors_table">
                                                                     <thead class="text-info">
                                                                     <tr>
+                                                                        <th>
+                                                                            <div class="checkbox">
+                                                                                <label>
+                                                                                    <input type="checkbox" id="check_all"
+                                                                                           name="optionsCheckboxes">
+                                                                                </label>
+                                                                            </div>
+                                                                        </th>
                                                                         <th>الاسم</th>
                                                                         <th>نوع الزائر</th>
-                                                                        <th>الجنس</th>
                                                                         <th>الوظيفة</th>
                                                                     </tr>
                                                                     </thead>
                                                                     <tbody>
                                                                     <tr>
+                                                                        <td>
+                                                                            <div class="checkbox checkbox-inline">
+                                                                                <label>
+                                                                                    <input type="checkbox"
+                                                                                           name="optionsCheckboxes">
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
                                                                         <td>محمد بدرالدين خضر</td>
                                                                         <td>مقيم</td>
-                                                                        <td>ذكر</td>
+                                                                        <td>مبرمج حاسب</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox checkbox-inline">
+                                                                                <label>
+                                                                                    <input type="checkbox"
+                                                                                           name="optionsCheckboxes">
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>محمد بدرالدين خضر</td>
+                                                                        <td>مقيم</td>
+                                                                        <td>مبرمج حاسب</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox checkbox-inline">
+                                                                                <label>
+                                                                                    <input type="checkbox"
+                                                                                           name="optionsCheckboxes">
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>محمد بدرالدين خضر</td>
+                                                                        <td>مقيم</td>
+                                                                        <td>مبرمج حاسب</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox checkbox-inline">
+                                                                                <label>
+                                                                                    <input type="checkbox"
+                                                                                           name="optionsCheckboxes">
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>محمد بدرالدين خضر</td>
+                                                                        <td>مقيم</td>
+                                                                        <td>مبرمج حاسب</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox checkbox-inline">
+                                                                                <label>
+                                                                                    <input type="checkbox"
+                                                                                           name="optionsCheckboxes">
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>محمد بدرالدين خضر</td>
+                                                                        <td>مقيم</td>
                                                                         <td>مبرمج حاسب</td>
                                                                     </tr>
                                                                     </tbody>
-
                                                                 </table>
-
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -228,13 +294,13 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <a href="admit_appointment_request.html" class="btn btn-success pull-left">إعتماد</a>
-                                        <button class="btn btn-danger pull-left">رفض</button>
+                                        <button class="btn btn-success pull-left">إعتماد</button>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
 
@@ -260,7 +326,33 @@
 <script src="../assets/js/material-dashboard.js"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="../assets/js/demo.js"></script>
+
+<script src="../assets/js/jquery.calendars.min.js"></script>
+<script src="../assets/js/jquery.calendars-ar.js"></script>
+<script src="../assets/js/jquery.calendars.plus.min.js"></script>
+<script src="../assets/js/jquery.plugin.js"></script>
+<script src="../assets/js/jquery.calendars.picker.js"></script>
+<script src="../assets/js/jquery.calendars.picker-ar.js"></script>
+<script src="../assets/js/jquery.calendars.ummalqura.min.js"></script>
+<script src="../assets/js/jquery.calendars.ummalqura-ar.js"></script>
+
+
+<script src="../assets/js/datetimepicker.js"></script>
+
 <script>
+    $("#check_all").click(function(){
+        $('input:checkbox').not(this).prop('checked', this.checked);
+    });
+
+    $('.datepicker').calendarsPicker({
+        calendar: $.calendars.instance('ummalqura', 'ar'), selectDefaultDate: true, showTrigger: '#calImg'
+    });
+
+    $('.timepicker').datetimepicker({
+        datepicker: false,
+        format: 'H:i'
+    });
+
 </script>
 
 
