@@ -25,6 +25,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css">
+	<link rel="stylesheet" href="../assets/css/bootstrap-rtl.css">
 
 </head>
 
@@ -49,10 +50,16 @@
 	    	<div class="sidebar-wrapper">
 	            <ul class="nav">
 	                <li class="active">
-	                    <a href="dashboard.html">
+	                    <a href="#">
 	                        <i class="material-icons">dashboard</i>
+							<i class="material-icons expand-toggle expand" data-toggle="collapse" data-target="#Benefs">keyboard_arrow_down</i>
 	                        <p>الرئيسية</p>
 	                    </a>
+						<ul class="nav sidebar-sub collapse" id="Benefs" role="menu">
+							<li class="subnavli"><a href="/Employees">الموظفين</a></li>
+							<li class="subnavli"><a href="/Suppliers">الموردين</a></li>
+							<li class="subnavli"><a href="/Beneficiaries">أخرى</a></li>
+						</ul>
 	                </li>
 	                <li>
 	                    <a href="visitors.html">
@@ -406,7 +413,12 @@
 
 	<script type="text/javascript">
     	$(document).ready(function(){
-
+    	    $(document).on('click', '.expand-toggle', function () {
+                if($(this).hasClass('collapsed'))
+                    $(this).text('keyboard_arrow_down');
+                else if(!$(this).hasClass('collapsed'))
+                    $(this).text('keyboard_arrow_up');
+            });
 			// Javascript method's body can be found in assets/js/demos.js
         	demo.initDashboardPageCharts();
 

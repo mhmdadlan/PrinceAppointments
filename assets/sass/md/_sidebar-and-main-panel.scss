@@ -9,7 +9,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 0;
+    right: 0;
     z-index: 1;
     @include shadow-big();
 
@@ -43,10 +43,8 @@
     .nav{
         margin-top: 20px;
 
-        li{
+         li{
             > a{
-                margin: 10px 15px;
-                border-radius: $border-radius-base;
                 color: $black-color;
                 @extend .animation-transition-general;
             }
@@ -63,6 +61,18 @@
                     color: #FFFFFF;
                 }
             }
+            i.expand{
+                float: left;
+                margin: 0;
+            }
+
+        }
+
+        li.subnavli {
+            > a {
+                margin: 0;
+                padding-right: 30px;
+            }
         }
 
         p{
@@ -75,15 +85,18 @@
 
         i{
             font-size: 24px;
-            float: left;
-            margin-right: 15px;
+            float: right;
+            margin-left: 15px;
             line-height: 30px;
             width: 30px;
             text-align: center;
             color: #a9afbb;
         }
     }
-
+    .sidebar-sub{
+                background-color: $green-100;
+                margin:0;
+    }
     .sidebar-background{
         position: absolute;
         z-index: 1;
@@ -222,7 +235,7 @@
     //background: rgba(203,203,210,.15);
     position: relative;
     z-index: 2;
-    float: right;
+    float: left;
     overflow: auto;
     width: $sidebar-width;
     min-height: 100%;

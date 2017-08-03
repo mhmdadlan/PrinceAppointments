@@ -11,7 +11,6 @@
     text-transform: uppercase;
     letter-spacing: 0;
 
-    will-change: box-shadow, transform;
     transition: box-shadow 0.2s $mdb-animation-curve-fast-out-linear-in,
     background-color 0.2s $mdb-animation-curve-default;
 
